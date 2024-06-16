@@ -5,8 +5,7 @@ import (
 	"rentServer/initilization/http"
 	"rentServer/initilization/resource"
 	"rentServer/initilization/service_time"
-	"rentServer/initilization/task"
-	"rentServer/initilization/wxpay"
+	"rentServer/initilization/task" 
 	"rentServer/pkg/config"
 	"rentServer/pkg/logger"
 )
@@ -31,10 +30,10 @@ func LoadConf() {
 	if err != nil {
 		panic(err)
 	}
-	err = wxpay.Init()
-	if err != nil {
-		panic(err)
-	}
+	// err = wxpay.Init()
+	// if err != nil {
+	// 	panic(err)
+	// }
 	err = http.NewRouter().Run(":" + config.GetConfig().HttpPort)
 	if err != nil {
 		panic(err)
